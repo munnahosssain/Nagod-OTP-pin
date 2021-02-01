@@ -47,7 +47,7 @@
                                 <div class="button">C</div>
                             </div>
                             <div>
-                                <button onclick="matchingPin" type="submit" class="submit-btn">Submit</button>
+                                <button onclick="matchingPin()" type="submit" class="submit-btn">Submit</button>
                                 <p class="action-left">3 try left</p>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                 return pin;
             }
             else {
-                console.log('short number : ', pin);
+                //console.log('short number : ', pin);
                 return getPin();
             }
         }
@@ -91,23 +91,30 @@
             else {
                 const typeInput = document.getElementById('type-pin');
                 typeInput.value = typeInput.value + digit;
-            }
+            }  
         })
         // Verified pin
         function matchingPin() {
             const pin = document.getElementById('pin').value;
             const typePin = document.getElementById('type-pin').value;
+            
             if (pin === typePin) {
-                // const correct = document.getElementById.('correct-pin');
-                // correct.style.display = 'block';
+                marchResult('block', 'none');
             }
             else {
-                // const correct = document.getElementById.('incorrect-pin');
-                // correct.style.display = 'block';
+                marchResult('none', 'block');
             }
         }
+        // Display message
+        function marchResult(correctPin, incorrectPin) {
+            const correct = document.getElementById('correct-pin');
+            correct.style.display = correctPin;
 
+            const incorrect = document.getElementById('incorrect-pin');
+            incorrect.style.display = incorrectPin;
+        }
     </script>
-</body>
 
+<!-- how to make functionality of backspace button of a calculator using javascript -->
+</body>
 </html>
